@@ -1,0 +1,50 @@
+{
+    "build": {
+        "core": "stm32",
+        "cpu": "cortex-m0plus",
+        "extra_flags": "-DSTM32G0xx -DSTM32G031xx",
+        "f_cpu": "64000000L",
+        "mcu": "stm32g031g8u6",
+        "product_line": "STM32G031xx",
+        "variant": "STM32G0xx/G031G(4-6-8)U_G041G(6-8)U"
+    },
+    "connectivity": [
+    ],
+    "debug": {
+        "default_tools": [
+            "stlink"
+        ],
+        "jlink_device": "STM32G031G8",
+        "onboard_tools": [
+            "stlink"
+        ],
+        "openocd_chipname": "stm32g031g8",
+        "openocd_target": "stm32g0x",
+        "svd_path": "STM32G031xx.svd"
+    },
+    "frameworks": [
+        "arduino",
+        "cmsis",
+        "mbed",
+        "libopencm3",
+        "stm32cube",
+        "zephyr"
+    ],
+    "name": "STM32G031G8",
+    "upload": {
+        "maximum_ram_size": 8192,
+        "maximum_size": 65536,
+        "protocol": "stlink",
+        "protocols": [
+            "stlink",
+            "jlink",
+            "cmsis-dap",
+            "blackmagic",
+            "mbed",
+            "serial",
+            "dfu"
+        ]
+    },
+    "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32g031g8.html",
+    "vendor": "ST"
+}
