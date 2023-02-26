@@ -1,15 +1,16 @@
 #include <Arduino.h>
 #include <SimpleFOC.h>
 #include <SimpleFOCDrivers.h>
+#include <SPI.h>
 
 #include "lepton_hw.h"
 
-#include "encoders/sc60228/MagneticSensorSC60228.h"
+#include "encoders/as5048a/MagneticSensorAS5048A.h"
 
 #define FIRMWARE_VERSION "1.0.0 by runger"
 
 
-// MagneticSensorSC60228 sensor = MagneticSensorSC60228(PIN_SPI_nCS);
+MagneticSensorAS5048A sensor = MagneticSensorAS5048A(PIN_SPI_SS);
 
 
 long ts;      // timestamp
@@ -27,7 +28,7 @@ void setup() {
   SimpleFOCDebug::println((int)SystemCoreClock);
   SimpleFOCDebug::println();
 
-  // sensor.init();
+  sensor.init();
 
   ts = millis();
   SimpleFOCDebug::println("SimpleFOC Lepton initialized.");
@@ -38,12 +39,12 @@ void setup() {
 
 
 void loop() {
-  // sensor.update();
+  sensor.update();
   its++;
   if (millis() - ts > 1000) {
     ts = millis();
-    // SimpleFOCDebug::print("Angle: ");
-    // SimpleFOCDebug::println(sensor.getAngle());
+    SimpleFOCDebug::print("Angle: ");
+    SimpleFOCDebug::println(sensor.getAngle());
     SimpleFOCDebug::print("Iterations/s: ");
     SimpleFOCDebug::println(its);
     its=0;
